@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+
+body {
+    background-color: #FFB400;
+    height:100%;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+div.signscreen {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    justify-content: center;
+    padding-top: 100px;
+    text-align: center;
+    vertical-align: top;
+}
+
+img.logo {
+    width: 200px;
+    height: 200px;
+}
+
+img.logosorry {
+    width: 200px;
+    height: 200px;
+}
+
+img.iconehotel {
+    width: 5%;
+    height: 5%;
+}
+
+.google {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+span.logotext {
+    display: block;
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+button {
+    transition-duration: 0.2s;
+}
+
+button.signupgoogle {
+    border: 2px solid #000;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button.signupgoogle:hover {
+    filter: invert(100%);
+}
+
+button.btn {
+    border: 2px solid #000;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 7px 75px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+button.btn:hover {
+    filter: invert(100%);
+}
+
+button.signinbutton {
+    background-color: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+button.forgot {
+    display: block;
+    text-align: right;
+    font-size: 15px;
+    color: #1a79ca;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.signin-popup, .signup-popup {
+    position: absolute;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%);
+    top: 100%;
+    height: 0;
+    width: 380px;
+    padding: 20px 30px;
+    background-color: #F1F7ED;
+    box-shadow: 0 0 0 max(100vh, 100vw) rgba(0, 0, 0, .5);
+    border-radius: 20px 20px 0px 0px;
+    transition: all 0.5s ease-in-out;
+}
+
+.signup-popup.active {
+    bottom: 0;
+    top: 10%;
+    opacity: 1;
+    height: 100%;
+}
+
+.signin-popup.active {
+    bottom: 0;
+    top: 25%;
+    opacity: 1;
+    height: 100%;
+}
+
+.signin-popup .close-btn, .signup-popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    background: #888;
+    color: #eee;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.signin-popup .form h2, .signup-popup .form h2 {
+    text-align: center;
+    color: #222;
+    margin: 10px 0px 20px;
+    font-size: 25px;
+}
+
+.signin-popup .form .form-element, .signup-popup .form .form-element {
+    margin: 15px 0px;
+}
+
+.signin-popup .form .form-element label, .signup-popup .form .form-element label {
+    font-size: 14px;
+    color: #222;
+}
+
+.signin-popup .form .form-element input[type="email"], .signup-popup .form .form-element input[type="email"],
+.signin-popup .form .form-element input[type="password"], .signup-popup .form .form-element input[type="password"],
+.signin-popup .form .form-element input[type="text"], .signup-popup .form .form-element input[type="text"] {
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.signin-popup .form .form-element button, .signup-popup .form .form-element button {
+    width: 100%;
+}
+
+.signin-popup .form .form-element input[type="checkbox"], .signup-popup .form .form-element input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.signin-popup .form-element a, .signup-popup .form-element a {
+    display: block;
+    text-align: right;
+    font-size: 15px;
+    color: #1a79ca;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 797px) {
+    .signup-popup.active {
+        bottom: 0;
+        top: 30%;
+        opacity: 1;
+        height: 100%;
+    }
+    
+    .signin-popup.active {
+        bottom: 0;
+        top: 45%;
+        opacity: 1;
+        height: 100%;
+    }
+}

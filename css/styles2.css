@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+
+:root {
+  --h1-font-size: 1.5rem;
+  --normal-font-size: 0.938rem;
+  --tiny-font-size: 0.625rem;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+.transition-slide-right-left {
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.transition-normal {
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.transition-fade {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+.transition-crazy {
+  opacity: 1;
+  transition: 2s;
+  position: absolute;
+}
+
+html.is-animating .transition-crazy {
+  transform: rotate(1800deg) scale(1.5, 1.5) translateY(200px);
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+html.is-animating .transition-normal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html.is-animating .transition-slide-right-left {
+  opacity: 1;
+  transform: translateX(-100%);
+}
+
+html.is-animating {
+  overflow: hidden;
+}
+
+html.is-leaving .transition-slide-right-left {
+  transform: translateX(100%);
+}
+
+html.is-leaving {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 3rem 0 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--normal-font-size);
+  background-color: #f1f7ed;
+  color: #06070e;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section {
+  padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  color: #06070e;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section__height {
+  height: 100vh;
+}
+
+.container {
+  max-width: 968px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fbfbff;
+  z-index: 100;
+  transition: 0.4s;
+}
+
+.logo {
+  justify-content: space-between;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: #06070e;
+  font-weight: 600;
+}
+
+input.message {
+  margin: 5px;
+  display: inline-block;
+  width: 96.5%;
+  padding: 10px;
+  height: 35px;
+  outline: none;
+  border: 2px solid rgb(211, 211, 211);
+  border-radius: 20px;
+}
+
+div.textmessage {
+  align-items: center;
+}
+
+div.send {
+  background-color: #ffb400;
+  display: inline-block;
+  border-radius: 50px;
+  width: moz-fit-content;
+  padding: 5px;
+  padding-bottom: 3px;
+  margin: 0;
+  cursor: pointer;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+div.send i {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+div.location {
+  border-bottom: rgba(0, 0, 0, 0.08) 5px solid;
+  width: 100%;
+  float: left;
+}
+
+div.location i {
+  color: #000;
+  font-size: 500%;
+  margin: 0;
+  padding: 0;
+  float: left;
+  margin-top: 10px;
+}
+
+div.loc__text span {
+  font-size: 1.5rem;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+div.loc__text a {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+iframe{
+width: 100%;
+}
+
+h3.greetings {
+  font-size: 3rem;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  float: left;
+  margin-top: 10px;
+  float: left;
+  margin-right: 10px;
+}
+
+div.user_greet {
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+div.option {
+  width: 100%;
+  float: left;
+  font-size: 1.5rem;
+  color: rgb(160, 160, 160);
+  margin: 0;
+  padding: 0;
+  padding-bottom: 15px;
+  margin-top: 10px;
+  border-bottom: rgba(0, 0, 0, 0.08) solid 5px;
+}
+
+span.contact {
+  font-size: 1.5rem;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 70%;
+  margin-top: 50px;
+}
+
+div.logout {
+  font-size: 1.5rem;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  float: right;
+}
+
+div.logout i {
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+div.logout a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+h3.hotel__name {
+  font-size: 2rem;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  float: left;
+  margin-top: 10px;
+  float: left;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fbfbff;
+    box-shadow: 0 -1px 12px #dddddd;
+    width: 100%;
+    height: 4rem;
+    padding: 0 1rem;
+    display: grid;
+    align-content: center;
+    border-radius: 1.25rem 1.25rem 0 0;
+    transition: 0.4s;
+  }
+}
+
+img.logohotel {
+  display: none;
+}
+
+.nav__list,
+.nav__link {
+  display: flex;
+}
+
+.nav__link {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4px;
+  color: #06070e;
+  font-weight: 600;
+}
+
+.nav__list {
+  justify-content: space-around;
+}
+
+.nav__name {
+  font-size: var(--tiny-font-size);
+}
+
+.nav__icon {
+  font-size: 1.5rem;
+}
+
+.active-link {
+  position: relative;
+  color: #ffb400;
+  transition: 0.3s;
+}
+
+.scroll-header {
+  box-shadow: 0 1px 12px #dddddd;
+}
+
+@media screen and (max-width: 320px) {
+  .nav__name {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .nav__list {
+    justify-content: center;
+    column-gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  body {
+    margin: 0;
+  }
+
+  img.logohotel {
+    width: 75%;
+    height: 75%;
+    display: block;
+  }
+
+  .section {
+    padding: 7rem 0 2rem;
+  }
+  .nav {
+    height: 4.5rem;
+  }
+  .nav__icon {
+    display: none;
+  }
+  .nav__name {
+    font-size: var(--normal-font-size);
+  }
+  .nav__link:hover {
+    color: #ffb400;
+  }
+
+  #link-bar {
+    position: absolute;
+    bottom: -0.2rem;
+    width: 40px;
+    height: 2px;
+    background-color: #ffb400;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

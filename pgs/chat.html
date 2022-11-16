@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <link rel="stylesheet" href="../css/styles2.css">
+
+        <title>Chat</title>
+    </head>
+    <body>
+        <header class="header" id="header">
+            <nav class="nav container">
+                <div class="logo">
+                    <a href="./home.html" class="nav__logo" style="width: 75%; height: 75%; display:contents;"> <img src="../assets/logo.png" class="logohotel"> Hochat</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="./menu.html" class="nav__link transition-normal">
+                                <i class='bx bxs-dish nav__icon'></i>
+                                <span class="nav__name">Menu</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav__item">
+                            <a href="./map.html" class="nav__link transition-normal">
+                                <i class='bx bxs-map nav__icon'></i>
+                                <span class="nav__name">Map</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="./home.html" class="nav__link transition-normal">
+                                <i class='bx bxs-building nav__icon'></i>
+                                <span class="nav__name">Hotel</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="./chat.html" class="nav__link transition-normal active-link">
+                                <i class='bx bxs-message-square-detail nav__icon'></i>
+                                <span class="nav__name">Chat</span>
+                                <div id="link-bar" class="transition-fade"></div>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="./profile.html" class="nav__link transition-normal">
+                                <i class='bx bxs-user nav__icon'></i>
+                                <span class="nav__name">Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main id="swup" class="transition-slide-right-left">
+            <section class="container section section__height" id="chat">
+                <h2 class="section__title">Chat</h2>
+            </section>
+            <ul id="message"></ul>
+            <div class="textmessage">
+                <input type="text" class="message" id="msg" name="msg" placeholder="Mensagem">
+                <button type="button" onclick="send()">
+                    <i class='bx bxs-send'></i>
+                </div>
+            </div>
+            
+        </main>
+        
+
+        <script src="../js/main.js"></script>
+
+        <!-- inicio da conectividade fire base -->
+
+        <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-app-compat.js"></script>   
+        <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-database-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-auth-compat.js"></script>
+
+        <script>
+           const firebaseConfig = {
+           apiKey: "AIzaSyDNtNUqZmINkdEyqZq2FgonUpWUOxLVEq0",
+           authDomain: "hochat-aee1e.firebaseapp.com",
+           databaseURL: "https://hochat-aee1e-default-rtdb.firebaseio.com",
+           projectId: "hochat-aee1e",
+           storageBucket: "hochat-aee1e.appspot.com",
+           messagingSenderId: "473374048686",
+           appId: "1:473374048686:web:51308917706ac1d166483f",
+           measurementId: "G-LZCXC23JGY"
+           };
+           firebase.initializeApp(firebaseConfig);
+           //inicio do chat
+
+           firebase.auth().onAuthStateChanged(function(user){
+                if (user !== "sender"){
+            firebase.database().ref("msg").on("child_added", function(snapshot){
+            var html="";
+            html +="<li>";
+                html+= snapshot.val().sender + ": " + snapshot.val().message;
+            html+="</li>";
+
+            document.getElementById("message").innerHTML+=html;
+        });
+        }else{
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+            /** @type {firebase.auth.OAuthCredential} */
+            var credential = result.credential;
+            var token = credential.accessToken;
+            var user = result.user;
+            exports = {user};
+            }).catch((error) => {
+            console.log('error',error)
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            var email = error.email;
+            var credential = error.credential;
+            });
+        }
+});
+            //Finalizaçãodo chat 
+           </script>
+
+           <script>
+                function send(){
+                    firebase.auth().onAuthStateChanged((user) => {
+                     if (user) {
+                    const uid = user.uid;
+                    const displayName = user.displayName;
+                    var message= document.getElementById("msg").value;
+                    firebase.database().ref("msg").push().set({
+                        "sender": displayName,
+                        "message":message,
+                    });
+                } else {
+            }
+            });
+                };
+           </script>
+
+    </body>
+</html>

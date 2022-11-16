@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" href="../css/styles2.css" />
+
+    <title>Map</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <div class="logo">
+          <a
+            href="./home.html"
+            class="nav__logo"
+            style="width: 75%; height: 75%; display: contents"
+          >
+            <img src="../assets/logo.png" class="logohotel" /> Hochat</a
+          >
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="./menu.html" class="nav__link transition-normal">
+                <i class="bx bxs-dish nav__icon"></i>
+                <span class="nav__name">Menu</span>
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a
+                href="./map.html"
+                class="nav__link transition-normal active-link"
+              >
+                <i class="bx bxs-map nav__icon"></i>
+                <span class="nav__name">Map</span>
+                <div id="link-bar" class="transition-fade"></div>
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="./home.html" class="nav__link transition-normal">
+                <i class="bx bxs-building nav__icon"></i>
+                <span class="nav__name">Hotel</span>
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="./chat.html" class="nav__link transition-normal">
+                <i class="bx bxs-message-square-detail nav__icon"></i>
+                <span class="nav__name">Chat</span>
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="./profile.html" class="nav__link transition-normal">
+                <i class="bx bxs-user nav__icon"></i>
+                <span class="nav__name">Profile</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section class="container section section__height" id="map">
+      <h2 class="section__title">Places nearby recommended by the hotel</h2>
+
+      <iframe style="border:4px solid black; border-radius: 4px;"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3787.6320084088434!2d-47.315949771597765!3d-22.73546948293505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c89a2328b1cc89%3A0x9c221a3f4178ee42!2sEtec%20Polivalente%20de%20Americana!5e0!3m2!1spt-BR!2sbr!4v1668459983376!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
+      <div class="places">
+
+
+        <div class="location">
+          <i class="bx bxs-map"></i>
+          <div class="loc__text">
+            <span>McDonald's Americana Drive 1</span>
+            <span>Distance: 300 m</span>
+            <a href="https://goo.gl/maps/2pmesTyRYyrNkcSS9" target="_blank">See on Google Maps</a>
+          </div>
+        </div>
+
+        <div class="location">
+          <i class="bx bxs-map"></i>
+          <div class="loc__text">
+            <span>Burger King</span>
+            <span>Distance: 500 m</span>
+            <a href="https://goo.gl/maps/7agAXmYmwcyXhjyX9" target="_blank">See on Google Maps</a>
+          </div>
+        </div>
+
+        <div class="location">
+          <i class="bx bxs-map"></i>
+          <div class="loc__text">
+            <span>Di Madre Pizzaria</span>
+            <span>Distance: 550 m</span>
+            <a href="https://goo.gl/maps/PaKvjZbJH2bwfpHL8" target="_blank">See on Google Maps</a>
+          </div>
+        </div>
+
+        <div class="location">
+          <i class="bx bxs-map"></i>
+          <div class="loc__text">
+            <span>Estação Geek Restaurante, Petiscaria e Marmitaria</span>
+            <span>Distance: 550 m</span>
+            <a href="https://g.page/estacaogeekamericana?share" target="_blank">See on Google Maps</a>
+          </div>
+        </div>
+
+        <div class="location">
+          <i class="bx bxs-map"></i>
+          <div class="loc__text">
+            <span>Restaurante Casa da Vó Nena</span>
+            <span>Distance: 600 m</span>
+            <a href="https://goo.gl/maps/6kxbuTgTAf1ky3SP8" target="_blank">See on Google Maps</a>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

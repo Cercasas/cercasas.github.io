@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/w3styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#E7B030"/>
+    <meta name="description" content="Site de serviço de quarto de hotel.">
+    <script src="index.js"></script>
+    <link rel="apple-touch-icon" href="./assets/logot192.png">
+    <title>HoChat</title>
+</head>
+<body>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        
+        <div class="signscreen">
+                <img src="assets/logo.png" class="logo" alt="HoChat logo">
+                <span class="logotext">HoChat</span>
+
+                <button class="btn" id="show-signup">Sign up</button> 
+                <br>
+                <button class="signupgoogle" onclick="goglog()"><span><ion-icon name="logo-google" class ="google"></ion-icon></span><strong>Sign up with google</strong></button>
+
+                <br>
+
+                <strong class="signin">Already have an account? <button class="signinbutton" id="show-signin"><u>Sign in</u></button>.</strong>
+        </div>
+
+        <div class="signin-popup">
+                <div class="close-btn">&times;</div>
+                <div class="form">
+                        <h2>Sign in</h2>
+                        <div class="form-element">
+                                <label for="email">E-mail</label>
+                                <input type="email" name="email" id="email" placeholder="Enter your E-mail">
+                        </div>
+                        <div class="form-element">
+                                <label for="psw">Password</label>
+                                <input type="password" name="psw" id="psw" placeholder="Enter your password">
+                        </div>
+                        <div class="form-element">
+                                <input type="checkbox" name="remember-me" id="remember-me">
+                                <label for="remember-me">Remember me</label>
+                        </div>
+                        <div class="form-element">
+                                <button class="btn" onclick="SiginIn()">Sign in</button>
+                        </div>
+                        <div class="form-element">
+                                <button class="signupgoogle" ><span><ion-icon name="logo-google" class ="google"></ion-icon></span><strong>Sign in with google</strong></button>
+                        </div>
+                        <div class="form-element">
+                                <button class="forgot" onclick="Recsen()" >Forgot password?</button>
+                        </div>
+                </div>
+        </div>
+
+        <div class="signup-popup">
+                <div class="close-btn">&times;</div>
+                <div class="form">
+                        <h2>Sign up</h2>
+                        <div class="form-element">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-element">
+                                <label for="email">E-mail</label>
+                                <input type="email" name="email" id="emailup" placeholder="Enter your E-mail">
+                        </div>
+                        <div class="form-element">
+                                <label for="conemail">Confirm E-mail</label>
+                                <input type="email" name="conemail" id="conemail" placeholder="Confirm your E-mail">
+                        </div>
+                        <div class="form-element">
+                                <label for="psw">Password</label>
+                                <input type="password" name="psw" id="pswup" placeholder="Enter your password">
+                        </div>
+                        <div class="form-element">
+                                <label for="conpsw">Confirm password</label>
+                                <input type="password" name="conpsw" id="conpsw" placeholder="Confirm your password">
+                        </div>
+                        <div class="form-element">
+                                <input type="checkbox" name="remember-me" id="remember-me">
+                                <label for="remember-me">Remember me</label>
+                        </div>
+                        <div class="form-element">
+                                <button class="btn" onclick="Confirmpassandemail()">Sign up</button>
+                        </div>
+                </div>
+        </div>
+
+        <script src="js/popup.js"></script>
+
+        
+
+        <!-- Inicio do codigo do Firebase -->
+
+                <!-- codigo de ligamento com o firebase -->
+
+                     <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-app-compat.js"></script>   
+                     <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-auth-compat.js"></script>
+
+                     <script>
+                        const firebaseConfig = {
+                        apiKey: "AIzaSyDNtNUqZmINkdEyqZq2FgonUpWUOxLVEq0",
+                        authDomain: "hochat-aee1e.firebaseapp.com",
+                        databaseURL: "https://hochat-aee1e-default-rtdb.firebaseio.com",
+                        projectId: "hochat-aee1e",
+                        storageBucket: "hochat-aee1e.appspot.com",
+                        messagingSenderId: "473374048686",
+                        appId: "1:473374048686:web:51308917706ac1d166483f",
+                        measurementId: "G-LZCXC23JGY"
+                        };
+                        firebase.initializeApp(firebaseConfig);
+                        var provider = new firebase.auth.GoogleAuthProvider();
+
+                      
+
+                     </script>
+                <!-- finalização do codigo de ligamento do firebase-->
+
+                <!-- inicio login por email -->
+                        <script>
+                        function SiginIn(){
+                                var emails = document.getElementById("email").value;
+                                var senhas = document.getElementById("psw").value;
+                        firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
+                                location.href="pgs/home.html"; 
+                        }).catch(error =>{
+                                console.log('error',error)
+                        })
+                        
+                        }
+                        </script>
+                <!-- finalização login por email -->
+
+                <!-- inicio recuperação de senha -->
+                        <script>
+
+                                function Recsen(){
+                                    var emails = document.getElementById("email").value;    
+                                    firebase.auth().sendPasswordResetEmail(emails).then(() => {    
+                                        
+                                }).catch(error =>{
+                                    alert('Email Não encontrado');
+                                });
+                                 }
+                        </script>
+                <!-- finalização recuperação de senha -->
+
+                <!-- inicio inscrição por email -->
+
+                        <script>
+                                function Confirmpassandemail(){
+                                        const psw = document.getElementById("pswup").value;
+                                        const mail = document.getElementById("emailup").value;
+                                        const conpsw = document.getElementById("conpsw").value;
+                                        const conmail = document.getElementById("conemail").value;
+
+                                        if (mail != conmail){
+                                                alert('Emails não coincidem');
+                                        }else{
+                                                if (psw != conpsw){
+                                                        alert('Senhas não coincidem');   
+                                                }else{
+                                                firebase.auth().createUserWithEmailAndPassword(mail,psw).then(response =>{
+                                                alert('Email criado com sucesso!');
+                                                }).catch(error =>{
+                                                alert('Email invalido ou ja utilizado');
+                                                })
+                                                }
+                                        } 
+                                }
+                        </script>
+
+                <!-- finalização inscrição por email -->
+
+                        <script src ="js/Sign.js"></script>
+                        
+                </body>
+</body>
+</html>

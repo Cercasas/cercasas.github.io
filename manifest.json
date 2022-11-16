@@ -1,0 +1,20 @@
+{
+    "name": "HoChat",
+    "short_name": "HoChat",
+    "start_url": ".",
+    "background_color": "#FFB400",
+    "theme_color": "#E7B030",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "assets/logot192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/logot512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

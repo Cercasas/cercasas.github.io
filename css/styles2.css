@@ -263,6 +263,7 @@ div.logout {
   color: rgb(255, 0, 0);
   font-weight: bold;
   float: right;
+  vertical-align: middle;
 }
 
 div.logout i {

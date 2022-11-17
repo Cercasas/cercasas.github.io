@@ -62,7 +62,7 @@
             <section class="container section section__height" id="profile">
                 <h2 class="section__title">Profile</h2>
                 <div class="user_greet">
-                    <img id="user_icon" src= photoURL alt="User Icon">
+                    <img id="user_icon" src= "" alt="User Icon">
                     <h3 class="greetings">Hello, </h3>
                     <h3 class="greetings" id="user">User!</h3> 
                     <div class="logout">
@@ -109,12 +109,17 @@
                     const email = user.email;
                     const nunber =  user.phoneNumber;
                     const photoURL = user.photoURL;
+                    const displayName = user.displayName;
 
                     const spannun = document.getElementById('cellphone');
                     const spanem = document.getElementById('email');
-
+                    const spanuser = document.getElementById('user');
+                    const img = document.getElementById("user_icon");
+                    
+                    img.src="photoURL"
                     spannun.textContent = nunber;
                     spanem.textContent = email;
+                    spanuser.textContent = displayName;
 
         }else{
             var provider = new firebase.auth.GoogleAuthProvider();

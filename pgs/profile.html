@@ -72,10 +72,6 @@
                     </div>
                 </div>
                 <div class="option">
-                    <span>Date of Birth: </span>
-                    <span id="dob">00/00/0000</span>
-                </div>
-                <div class="option">
                     <span>Cellphone Number: </span>
                     <span id="cellphone">(00)000000000</span>
                 </div>
@@ -107,7 +103,37 @@
            };
            firebase.initializeApp(firebaseConfig);
     
-                    console.log("abacate");
+           firebase.auth().onAuthStateChanged(function(user){
+                if (user !== "sender"){
+                    const email = user.email;
+                    const nunber =  user.phoneNumber;
+                    const photoURL = user.photoURL;
+
+                    const spannun = document.getElementById('cellphone');
+                    const spanem = document.getElementById('email');
+
+                    spannun.textContent = nunber;
+                    spanem.textContent = email;
+
+        }else{
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+            /** @type {firebase.auth.OAuthCredential} */
+            var credential = result.credential;
+            var token = credential.accessToken;
+            var user = result.user;
+            exports = {user};
+            }).catch((error) => {
+            console.log('error',error)
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            var email = error.email;
+            var credential = error.credential;
+            });
+        }
+});
         
            </script>
     </body>

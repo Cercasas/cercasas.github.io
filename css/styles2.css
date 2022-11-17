@@ -280,10 +280,28 @@ h3.hotel__name {
   color: #000;
   margin: 0;
   padding: 0;
-  float: left;
   margin-top: 10px;
-  float: left;
   margin-right: 10px;
+}
+
+img.etec {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  float: left;
+  border-radius: 10px;
+  text-justify: auto;
+}
+
+span.hotel__info {
+  font-size: 1.5rem;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+  text-align: justify;
 }
 
 @media screen and (max-width: 767px) {

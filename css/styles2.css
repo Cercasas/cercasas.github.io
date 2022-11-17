@@ -180,7 +180,7 @@ div.send i {
 }
 
 div.location {
-  border-bottom: rgba(0, 0, 0, 0.08) 5px solid;
+  border-bottom: rgba(0, 0, 0, 0.08) 2px solid;
   width: 100%;
   float: left;
 }
@@ -245,7 +245,7 @@ div.option {
   padding: 0;
   padding-bottom: 15px;
   margin-top: 10px;
-  border-bottom: rgba(0, 0, 0, 0.08) solid 5px;
+  border-bottom: rgba(0, 0, 0, 0.08) solid 2px;
 }
 
 span.contact {
@@ -302,7 +302,9 @@ span.hotel__info {
   float: left;
   width: 100%;
   margin-top: 10px;
+  padding-bottom: 10px;
   text-align: justify;
+  border-bottom: rgba(0, 0, 0, 0.08) solid 2px;
 }
 
 #user_icon {

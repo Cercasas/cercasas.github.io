@@ -311,7 +311,7 @@ span.hotel__info {
   border-radius: 50px;
   height: 100px;
   width: 100px;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 @media screen and (max-width: 767px) {

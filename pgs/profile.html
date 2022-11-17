@@ -110,12 +110,13 @@
                     const nunber =  user.phoneNumber;
                     const photoURL = user.photoURL;
                     const displayName = user.displayName;
+                    console.log("  Photo URL: " + profile.photoURL);
 
                     const spannun = document.getElementById('cellphone');
                     const spanem = document.getElementById('email');
                     const spanuser = document.getElementById('user');
                     
-                    document.getElementById("user_icon").src = "photoURL";
+                    document.getElementById("user_icon").src.replace = "photoURL";
                     spannun.textContent = nunber;
                     spanem.textContent = email;
                     spanuser.textContent = displayName;

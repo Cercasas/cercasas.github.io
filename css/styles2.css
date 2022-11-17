@@ -304,6 +304,14 @@ span.hotel__info {
   text-align: justify;
 }
 
+#user_icon {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  float: left;
+  border-radius: 50px;
+}
+
 @media screen and (max-width: 767px) {
   .nav__menu {
     position: fixed;

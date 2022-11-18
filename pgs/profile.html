@@ -105,18 +105,14 @@
            firebase.auth().onAuthStateChanged(function(user){
                 if (user !== "sender"){
                     const email = user.email;
-                    const nunber =   user.phoneNumber;
                     const photoURL = user.photoURL;
                     const displayName = user.displayName;
                     console.log("  Photo URL: " + user.photoURL);
-                    console.log("  number: " + user.phoneNumber);
 
-                    const spannun = document.getElementById('cellphone');
                     const spanem = document.getElementById('email');
                     const spanuser = document.getElementById('user');
                     
                     document.getElementById("user_icon").src = user.photoURL;
-                    spannun.textContent = user.phoneNumber;
                     spanem.textContent = email;
                     spanuser.textContent = displayName;
 

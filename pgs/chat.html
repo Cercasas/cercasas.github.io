@@ -100,14 +100,26 @@
 
            firebase.auth().onAuthStateChanged(function(user){
                 if (user !== "sender"){
-            firebase.database().ref("msg").on("child_added", function(snapshot){
+                    if ("sender" == user.displayName){
+                        firebase.database().ref("msg").on("child_added", function(snapshot){
             var html="";
-            html +="<li>";
+            html +="<div class="message-sent>"<li class="message-sent-text">";
                 html+= snapshot.val().sender + ": " + snapshot.val().message;
-            html+="</li>";
+            html+="</li> </div>";
 
             document.getElementById("message").innerHTML+=html;
         });
+                    }else{
+                        firebase.database().ref("msg").on("child_added", function(snapshot){
+            var html="";
+            html +="<div class="message-received"> <li class="message-received-text">";
+                html+= snapshot.val().sender + ": " + snapshot.val().message;
+            html+="</li> </div>";
+
+            document.getElementById("message").innerHTML+=html;
+        });
+                    }
+            
         }else{
             var provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth()

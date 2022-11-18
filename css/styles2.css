@@ -317,6 +317,14 @@ span.hotel__info {
   margin-right: 20px;
 }
 
+div.menu__item {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 6px 2px -2px rgba(167, 167, 167, 0.39);
+}
+
 @media screen and (max-width: 767px) {
   .nav__menu {
     position: fixed;

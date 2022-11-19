@@ -8,8 +8,6 @@
 
         <link rel="stylesheet" href="../css/styles2.css">
 
-        <link rel="icon" href="../assets/logo.ico" type="image/icon">
-
         <title>Profile</title>
     </head>
     <body>
@@ -68,7 +66,7 @@
                     <h3 class="greetings">Hello, </h3>
                     <h3 class="greetings" id="user"></h3> 
                     <div class="logout">
-                        <a href="../index.html">
+                        <a onclick = "logout()" href="#">
                             <i class='bx bxs-door-open'></i>
                             <span>Log Out</span>
                         </a>
@@ -105,14 +103,18 @@
            firebase.auth().onAuthStateChanged(function(user){
                 if (user !== "sender"){
                     const email = user.email;
+                    const nunber =   user.phoneNumber;
                     const photoURL = user.photoURL;
                     const displayName = user.displayName;
                     console.log("  Photo URL: " + user.photoURL);
+                    console.log("  number: " + user.phoneNumber);
 
+                    const spannun = document.getElementById('cellphone');
                     const spanem = document.getElementById('email');
                     const spanuser = document.getElementById('user');
                     
                     document.getElementById("user_icon").src = user.photoURL;
+                    spannun.textContent = user.phoneNumber;
                     spanem.textContent = email;
                     spanuser.textContent = displayName;
 
@@ -134,6 +136,13 @@
             var credential = error.credential;
             });
         }
+
+        function logout(){
+            firebase.auth().signOut().then(() => {
+                location.href="../index.html";
+                }).catch((error) => {
+                });
+        };
 });
         
            </script>

@@ -18,7 +18,12 @@ function goglog(){
     var email = error.email;
     var credential = error.credential;
     });
-    }
+    };
 
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            window.location.href="pgs/home.html";
+        }
+    })
    
  //finalização inscrição por gmail

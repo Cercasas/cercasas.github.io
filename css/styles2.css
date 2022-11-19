@@ -547,6 +547,19 @@ button.menu__pay {
     border-radius: 1.25rem 1.25rem 0 0;
     transition: 0.4s;
   }
+
+  img.etec {
+  height: 25%;
+}
+
+h3.hotel__name {
+  font-size: 20px;
+}
+
+span.hotel__info {
+  font-size: 15px;
+}
+
 }
 
 img.logohotel {

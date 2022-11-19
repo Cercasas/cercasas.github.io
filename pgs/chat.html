@@ -8,6 +8,8 @@
 
         <link rel="stylesheet" href="../css/styles2.css">
 
+        <link rel="icon" href="../assets/logo.ico" type="image/icon">
+
         <title>Chat</title>
     </head>
     <body>
@@ -98,14 +100,26 @@
 
            firebase.auth().onAuthStateChanged(function(user){
                 if (user !== "sender"){
-            firebase.database().ref("msg").on("child_added", function(snapshot){
+                    if ("sender" == user.displayName){
+                        firebase.database().ref("msg").on("child_added", function(snapshot){
             var html="";
             html +="<li>";
+                html+= snapshot.val().sender + ": " + snapshot.val().message;
+            html+="</li> </div>";
+
+            document.getElementById("message").innerHTML+=html;
+        });
+                    }else{
+                        firebase.database().ref("msg").on("child_added", function(snapshot){
+            var html="";
+            html +=" <li>";
                 html+= snapshot.val().sender + ": " + snapshot.val().message;
             html+="</li>";
 
             document.getElementById("message").innerHTML+=html;
         });
+                    }
+            
         }else{
             var provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth()

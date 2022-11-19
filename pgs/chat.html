@@ -103,7 +103,7 @@
                     if ("sender" == user.displayName){
                         firebase.database().ref("msg").on("child_added", function(snapshot){
             var html="";
-            html +="<div class="message-sent" <div class="message-sent-text">";
+            html +="<div class='message-sent' <div class='message-sent-text'>";
                 html+= snapshot.val().sender + ": " + snapshot.val().message;
             html+="</div> </div>";
 
@@ -112,7 +112,7 @@
                     }else{
                         firebase.database().ref("msg").on("child_added", function(snapshot){
             var html="";
-            html +=" <div class="message-received" <div class="message-received-text">";
+            html +=" <div class='message-received' <div class='message-received-text'>";
                 html+= snapshot.val().sender + ": " + snapshot.val().message;
             html+="</div> </div>";
 

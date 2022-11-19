@@ -75,7 +75,8 @@
             
         </main>
         
-           <script src="../js/nav-srcoll.js" defer></script>
+
+        <script src="../js/main.js"></script>
 
         <!-- inicio da conectividade fire base -->
 
@@ -98,8 +99,8 @@
            //inicio do chat
 
            firebase.auth().onAuthStateChanged(function(user){
-                if (user !== "sender"){
-                    if ("sender" == user.displayName){
+                if (user){
+                    if (snapshot.val().sender == user.displayName) {
                         firebase.database().ref("msg").on("child_added", function(snapshot){
             var html="";
             html +="<div class='message-sent' <div class='message-sent-text'>";

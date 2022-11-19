@@ -67,9 +67,9 @@
                     <img src="../assets/coxinha.jpg" alt="Coxinha" class="menu__img">
                     <span class="menu__title">Coxinha</span>
                     <span class="menu__text">Massa de batata, frango desfiado e requeijão</span>
-                    <button class="menu__button menu__right"><i class='bx bxs-plus-circle'></i></button>
+                    <button onclick = "coxup()" class="menu__button menu__right"><i class='bx bxs-plus-circle'></i></button>
                     <span class="menu__count" id="m_cx">0</span>
-                    <button class="menu__button"><i class='bx bxs-minus-circle'></i></button>
+                    <button onclick = "coxdown()" class="menu__button"><i class='bx bxs-minus-circle'></i></button>
                     <span class="menu__price">R$ 6,00</span>
                 </div>
 
@@ -77,13 +77,13 @@
                     <img src="../assets/coca.jpg" alt="Coca-Cola" class="menu__img">
                     <span class="menu__title">Coca-Cola</span>
                     <span class="menu__text">Lata 350 ml</span>
-                    <button class="menu__button menu__right"><i class='bx bxs-plus-circle'></i></button>
+                    <button onclick = "cocup()" class="menu__button menu__right"><i class='bx bxs-plus-circle'></i></button>
                     <span class="menu__count" id="m_cc">0</span>
-                    <button class="menu__button"><i class='bx bxs-minus-circle'></i></button>
+                    <button onclick = "cocdown()" class="menu__button"><i class='bx bxs-minus-circle'></i></button>
                     <span class="menu__price">R$ 6,00</span>
                 </div>
 
-                <button class="menu__pay">
+                <button onclick="pay()" class="menu__pay">
                     Pay
                 </button>
 
@@ -91,5 +91,34 @@
         
 
         <script src="../js/main.js"></script>
+
+            <script>
+                var cox = 0;
+                var coc = 0;
+                var total = 0;
+                
+                //coxinha ini
+                function coxup(){
+                    cox += 1;
+                };
+                function coxdown(){
+                    cox += -1;
+                };
+                //coxinha fin
+
+                //coca ini
+                function cocup(){
+                    coc += 1;
+                };
+                function cocdown(){
+                    coc += -1;
+                };
+                //coca fin
+
+                function pay(){
+                    total = (cox * 6) + (coc * 6)
+                    console.log(total)
+                };
+            </script>
     </body>
 </html>

@@ -101,18 +101,22 @@
                 
                 const spancox = document.getElementById('m_cx');
                 const spancoc = document.getElementById('m_cc');
+                const spanmenu = document.getElementById('menu__total')
 
                 spancox.textContent = cox;
                 spancoc.textContent = coc;
+                spancox.textContent = total;
 
                 //coxinha ini
                 function coxup(){
                     cox += 1;
                     spancox.textContent = cox;
+                    total = (cox * 6) + (coc * 6)
                 };
                 function coxdown(){
                     cox += -1;
                     spancox.textContent = cox;
+                    total = (cox * 6) + (coc * 6)
                 };
                 //coxinha fin
 
@@ -120,15 +124,16 @@
                 function cocup(){
                     coc += 1;
                     spancoc.textContent = coc;
+                    total = (cox * 6) + (coc * 6)
                 };
                 function cocdown(){
                     coc += -1;
                     spancoc.textContent = coc;
+                    total = (cox * 6) + (coc * 6)
                 };
                 //coca fin
 
                 function pay(){
-                    total = (cox * 6) + (coc * 6)
                     console.log(total)
                 };
             </script>

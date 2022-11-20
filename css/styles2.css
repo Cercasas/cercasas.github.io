@@ -697,6 +697,10 @@ button.menu__pay {
     float: left;
   }
 
+  div.separate {
+    height: 14%;
+  }
+
 }
 
 img.logohotel {

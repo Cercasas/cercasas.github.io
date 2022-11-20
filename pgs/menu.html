@@ -84,9 +84,9 @@
                 </div>
 
                 <button onclick="pay()" class="menu__pay">
-                    Total: R$ 
-                    <span id="menu__total">0,00</span>
+                    <span id="menu-total">0,00</span>
                     Pay
+                    <span class="menu__total">R$ </span> 
                 </button>
 
             </section>
@@ -101,7 +101,7 @@
                 
                 const spancox = document.getElementById('m_cx');
                 const spancoc = document.getElementById('m_cc');
-                const spanmenu = document.getElementById('menu__total')
+                const spanmenu = document.getElementById('menu-total')
 
                 spancox.textContent = cox;
                 spancoc.textContent = coc;

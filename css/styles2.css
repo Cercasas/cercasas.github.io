@@ -400,6 +400,7 @@ button.menu__pay {
   vertical-align: middle;
   border-radius: 10px;
   width: 100%;
+    font-weight: bold;
 }
 
 span.menu__total, #menu-total {
@@ -602,6 +603,9 @@ div.loc__text a:visited {
 
 h3.greetings {
   font-size: 30px;
+}
+#user_icon {
+  margin-right: 10%;
 }
 
 div.logout {

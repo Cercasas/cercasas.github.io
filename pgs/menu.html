@@ -115,11 +115,13 @@
                     spanmenu.textContent = total;
                 };
                 function coxdown(){
+                    if (cox > 0){
                     cox += -1;
+                    }
                     spancox.textContent = cox;
                     total = (cox * 6) + (coc * 6)
                     spanmenu.textContent = total;
-                };
+                    };
                 //coxinha fin
 
                 //coca ini
@@ -130,7 +132,9 @@
                     spanmenu.textContent = total;
                 };
                 function cocdown(){
+                    if (coc > 0){
                     coc += -1;
+                    }
                     spancoc.textContent = coc;
                     total = (cox * 6) + (coc * 6)
                     spanmenu.textContent = total;

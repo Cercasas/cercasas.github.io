@@ -134,13 +134,13 @@
             });
         }
 
-        function logout(){
+});
+            function logout(){
             firebase.auth().signOut().then(() => {
                 location.href="../index.html";
                 }).catch((error) => {
                 });
         };
-});
         
            </script>
     </body>

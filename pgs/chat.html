@@ -65,6 +65,7 @@
                 <h2 class="section__title">Chat</h2>
 
                 <ul id="message"></ul>
+                <div class="separate"></div>
             <div class="send-message">
                 <input type="text" id="msg" name="msg" placeholder="Message">
                 <button class="send-button" type="button" id="sendmsg" onclick="send()">
@@ -102,11 +103,29 @@
             if (user !== "sender"){
             firebase.database().ref("msg").on("child_added", function(snapshot){
             var html="";
-            html +="<li>";
-                html+= snapshot.val().sender + ": " + snapshot.val().message;
-            html+="</li>";
+            var writer = user.displayName;
+            if (writer == snapshot.val().sender){
+                html +="<div class='message-sent'>";
+                html +="<div class='message-sent-text'>";
+                    html+= snapshot.val().message;
+                html+="</div>";
+            html+="</div>";
+            html+= "<div class='message-sent-name'>" + snapshot.val().sender;
+            html+="</div>";
 
             document.getElementById("message").innerHTML+=html;
+            }
+            else if (writer !== snapshot.val().sender){
+                html +="<div class='message-received'>";
+                        html +="<div class='message-received-text'>";
+                            html+= snapshot.val().message;
+                        html+="</div>";
+                    html+="</div>";
+                    html+= "<div class='message-received-name'>" + snapshot.val().sender;
+                    html+="</div>";
+
+            document.getElementById("message").innerHTML+=html;
+            }
         });
         }else{
             var provider = new firebase.auth.GoogleAuthProvider();

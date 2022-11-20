@@ -540,6 +540,10 @@ div.loc__text a:visited {
   color: blue;
 }
 
+div.user_greet {
+  
+}
+
 @media screen and (max-width: 767px) {
   .nav__menu {
     position: fixed;

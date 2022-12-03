@@ -232,7 +232,6 @@ div.user_greet {
   width: 100%;
   float: left;
   margin-top: 10px;
-  margin-bottom: 20px;
   padding-bottom: 20px;
 }
 
@@ -275,6 +274,14 @@ div.logout a, a:visited {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+
+div.upload {
+  font-size: 1.5rem;
+  color: rgb(0, 75, 189);
+  font-weight: bold;
+  vertical-align: middle;
+  margin-bottom: 20px;
 }
 
 h3.hotel__name {
@@ -663,10 +670,8 @@ button.menu__pay {
   .send-message {
     float: left;
     width: 93%;
-    margin-top: 30px;
-    margin-bottom: 80px;
     position: fixed;
-    bottom: 0;
+    bottom: 60px;
   }
 
   .send-message .send-button {
@@ -698,7 +703,7 @@ button.menu__pay {
   }
 
   div.separate {
-    height: 50%;
+    height: 30%;
   }
 
 }

@@ -34,13 +34,11 @@ firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
                         if (psw != conpsw){
                                 alert('Senhas não coincidem');   
                         }else{
-                        firebase.auth().createUserWithEmailAndPassword(mail,psw).then(response =>{
-                        alert('Email criado com sucesso!');
+                        firebase.auth().createUserWithEmailAndPassword(mail,psw).then(response =>{ 
                         user.updateProfile({
                                 displayName: username,
                               }).then(() => {
-                                // Update successful
-                                // ...
+                                alert('Email criado com sucesso!');
                               }).catch((error) => {
                                 // An error occurred
                                 // ...

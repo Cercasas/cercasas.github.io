@@ -36,7 +36,7 @@ firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
                         }else{
                         firebase.auth().createUserWithEmailAndPassword(mail,psw).then(response =>{ 
                         user.updateProfile({
-                                displayName: username,
+                                displayName: username
                               }).then(() => {
                                 alert('Email criado com sucesso!');
                                 console.log(username)

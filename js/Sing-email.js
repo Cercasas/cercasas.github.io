@@ -22,7 +22,6 @@ firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
 
         function Confirmpassandemail(){
                 const user = firebase.auth().currentUser;
-                const username = document.getElementById("username").value;
                 const psw = document.getElementById("pswup").value;
                 const mail = document.getElementById("emailup").value;
                 const conpsw = document.getElementById("conpsw").value;
@@ -34,8 +33,16 @@ firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
                         if (psw != conpsw){
                                 alert('Senhas não coincidem');   
                         }else{
-                        firebase.auth().createUserWithEmailAndPassword(mail,psw).then(response =>{ 
+                        firebase.auth().createUserWithEmailAndPassword(mail,psw).then(response =>{
+                        var username = document.getElementById("username").value; 
+                        user.updateProfile({
+                                displayName: username,
+                              }).then(() => {
                                 alert('Email criado com sucesso!');
+                              }).catch((error) => {
+                                // An error occurred
+                                // ...
+                              });  
                         }).catch(error =>{
                         alert('Email invalido ou ja utilizado');
                         })

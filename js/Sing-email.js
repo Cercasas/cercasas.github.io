@@ -27,7 +27,7 @@ firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
                 const mail = document.getElementById("emailup").value;
                 const conpsw = document.getElementById("conpsw").value;
                 const conmail = document.getElementById("conemail").value;
-
+                
                 if (mail != conmail){
                         alert('Emails não coincidem');
                 }else{
@@ -39,6 +39,7 @@ firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
                                 displayName: username,
                               }).then(() => {
                                 alert('Email criado com sucesso!');
+                                console.log(username)
                               }).catch((error) => {
                                 // An error occurred
                                 // ...

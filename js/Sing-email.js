@@ -35,15 +35,7 @@ firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
                                 alert('Senhas não coincidem');   
                         }else{
                         firebase.auth().createUserWithEmailAndPassword(mail,psw).then(response =>{ 
-                        user.updateProfile({
-                                displayName: username
-                              }).then(() => {
                                 alert('Email criado com sucesso!');
-                                console.log(username)
-                              }).catch((error) => {
-                                // An error occurred
-                                // ...
-                              });  
                         }).catch(error =>{
                         alert('Email invalido ou ja utilizado');
                         })

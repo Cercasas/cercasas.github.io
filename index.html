@@ -123,63 +123,8 @@
                      </script>
                 <!-- finalização do codigo de ligamento do firebase-->
 
-                <!-- inicio login por email -->
-                        <script>
-                        function SiginIn(){
-                                var emails = document.getElementById("email").value;
-                                var senhas = document.getElementById("psw").value;
-                        firebase.auth().signInWithEmailAndPassword(emails,senhas).then(response =>{
-                                location.href="pgs/home.html"; 
-                        }).catch(error =>{
-                                console.log('error',error)
-                        })
-                        
-                        }
-                        </script>
-                <!-- finalização login por email -->
-
-                <!-- inicio recuperação de senha -->
-                        <script>
-
-                                function Recsen(){
-                                    var emails = document.getElementById("email").value;    
-                                    firebase.auth().sendPasswordResetEmail(emails).then(() => {    
-                                        
-                                }).catch(error =>{
-                                    alert('Email Não encontrado');
-                                });
-                                 }
-                        </script>
-                <!-- finalização recuperação de senha -->
-
-                <!-- inicio inscrição por email -->
-
-                        <script>
-                                function Confirmpassandemail(){
-                                        const psw = document.getElementById("pswup").value;
-                                        const mail = document.getElementById("emailup").value;
-                                        const conpsw = document.getElementById("conpsw").value;
-                                        const conmail = document.getElementById("conemail").value;
-
-                                        if (mail != conmail){
-                                                alert('Emails não coincidem');
-                                        }else{
-                                                if (psw != conpsw){
-                                                        alert('Senhas não coincidem');   
-                                                }else{
-                                                firebase.auth().createUserWithEmailAndPassword(mail,psw).then(response =>{
-                                                alert('Email criado com sucesso!');
-                                                }).catch(error =>{
-                                                alert('Email invalido ou ja utilizado');
-                                                })
-                                                }
-                                        } 
-                                }
-                        </script>
-
-                <!-- finalização inscrição por email -->
-
                         <script src ="js/Sign.js"></script>
+                        <script src ="js/Sing-email.js"></script>
                         
                 </body>
 </body>
